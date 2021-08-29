@@ -217,7 +217,7 @@ export function defaultValue(ctx: Context, field: FieldDescriptorProto): any {
     case FieldDescriptorProto_Type.TYPE_BOOL:
       return false;
     case FieldDescriptorProto_Type.TYPE_STRING:
-      return '""';
+      return `"${field.defaultValue || ""}"`;
     case FieldDescriptorProto_Type.TYPE_BYTES:
       if (options.env === EnvOption.NODE) {
         return 'Buffer.alloc(0)';
